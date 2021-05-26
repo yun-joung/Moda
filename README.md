@@ -10,7 +10,8 @@
 - Fashion-gallery ecommerce with modern brand images.
 - Try to create the image what the users want to see(their fashion style), instead of strong and stimulating ads.
 
-### Start the Application
+
+## Start the Application
 - Make sure you are using node version 14+ that you have already successfully installed.
 1. Install the packages: `$ npm install`
 2. Start coding! start the webpack dev server `$ npm run start` or `$ npm start`
