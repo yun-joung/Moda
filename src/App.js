@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import Menu from './view/Navbar.jsx';
+import Home from './view/home';
+import Footer from './view/footer.js';
+import injectContext from './store/appContext.js';
+import ScrollToTop from './store/scrollToTop';
+import SideDrawer from './components/SideDrawer/SideDrawer.js';
+import Productos from './view/Productos.js';
+import ProductsIndividual from './view/ProductsIndividual.js';
+import Compra from './view/Compra.js';
+
 
 function App() {
+  const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
+
+  const drawerToggleHander = () =>{
+    setSideDrawerOpen((prevState) => {
+      return {sideDrawerOpen: !prevState.sideDrawerOpen}
+    })
+  } 
+  useEffect(() => {
+		document.addEventListener("mousedown", () => {
+			setSideDrawerOpen(false);
+		});
+  }, []);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Menu drawerToggleHander = {drawerToggleHander}/>
+      { !! sideDrawerOpen &&  <SideDrawer /> }
+      <ScrollToTop>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/productos" component={Productos}>
+          </Route>
+          <Route path="/producto/:id" component={ProductsIndividual}>
+          </Route>
+          <Route path="/compra" component={Compra}>
+          </Route>
+        </Switch>
+      </ScrollToTop>
+      <Footer />
+    </Router>
+
+  )
 }
 
-export default App;
+export default injectContext(App);
