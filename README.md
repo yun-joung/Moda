@@ -15,5 +15,5 @@
 - Make sure you are using node version 14+ that you have already successfully installed.
 1. Install the packages: `$ npm install`
 2. Start coding! start the webpack dev server `$ npm run start` or `$ npm start`
-- Runs the app in the development mode.\
+- Runs the app in the development mode.
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
