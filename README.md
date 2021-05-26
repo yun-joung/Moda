@@ -3,7 +3,7 @@
 - Dependency: Javascript, ReactJS, flux, HTML and CSS without using frameworks or external libraries
 - 100% Responsive
 - API: https://random-data-api.com/api/commerce/random_commerce?size=30 
- (It is a random API. For this reason, the ID of the products could be changed while the app is running. You may get some errors when trying to move back to a product page.)
+ (It is a random API, so the ID of the products could be changed while the app is running.  For this reason, you may get some errors when trying to move back to a product page.)
  
  
 ## Concept 
